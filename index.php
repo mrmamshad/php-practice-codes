@@ -1,61 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>php-practice</title>
-</head>
-
-<body>
-    <!-- variable and condition  -->
-    <!-- <?php
-            $book = "DopamineDetox";
-            $read = false;
-
-            if ($read) {
-                $messege = "You read the $book";
-            } else {
-                $messege = "You don't read the $book";
-            }
-            ?>
-    <h1>
-        <?= $messege; ?><br>
-        <?= "hello world" ?>
-    </h1> -->
-
-    <h1>Recommended Books</h1>
     <?php
+
+
     $Books = [
-        " Descrete Mathmatics",
-        "Linear Algebra",
-        "Digital system design",
+        [
+            'name' => 'DSD',
+            'author' => 'Mahin',
+            'release year' => 1997,
+            'purchaseUrl' => 'https://example.com',
+        ],
+        [
+            'name' => 'C language',
+            'author' => 'Nusrat mubin Ara',
+            'release year' => 2023,
+            'purchaseUrl' => 'https://example.com',
+        ],
+        [
+            'name' => 'Java',
+            'author' => 'Nusrat mubin Ara',
+            'release year' => 2024,
+            'purchaseUrl' => 'https://example.com',
+        ],
+
     ];
+    
 
-    ?>
+     $filteredData = array_filter($Books, function($book){
+        return $book['release year'] > 2000;
+     } );
 
-    <ul>
-        <?php foreach ($Books as $book) : ?>
-            <li><?= $book ?></li>
-        <?php endforeach; ?>
-
-    </ul>
-
-    <!-- Homework  -->
-
-    <h1>Top Performing Users</h1>
-    <?php
-    $usernames = [
-        "Mamshad",
-        "Sabbir",
-        "Mahim"
-    ]; ?>
-
-    <ul>
-        <?php foreach ($usernames as $username) : ?>
-            <li><?= $username ?></li>
-        <?php endforeach; ?>
-    </ul>
-</body>
-
-</html>
+include "index.view.php";
