@@ -27,7 +27,6 @@
      $filteredData = array_filter($Books, function($book){
         return $book['release year'] > 2000;
      } );
-
-    $heading = 'Home' ;
-
-include "views/index.view.php";
+    
+     $heading = 'Contact Us' ; 
+include "views/contact.view.php";
