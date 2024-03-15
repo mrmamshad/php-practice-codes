@@ -1,10 +1,10 @@
-<?php include"../php-practice-codes/views/partials/head.php"; ?>
-<?php include "../php-practice-codes/views/partials/nav.php" ?>
-<?php include "../php-practice-codes/views/partials/banner.php"?> 
+<?php require('partials/head.php') ?>
+<?php require('partials/nav.php') ?>
+<?php require('partials/banner.php') ?>
+<main>
+  <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+    <p>Hello. Welcome to the home page.</p>
+  </div>
+</main>
 
-  <main>
-    <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-      <p>Hello welcome to home page </p>
-    </div>
-  </main>
-<?php include "../php-practice-codes/views/partials/footer.php" ; ?>
+<?php require('partials/footer.php') ?>
