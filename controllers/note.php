@@ -16,4 +16,4 @@ $notes = $db->query('SELECT * FROM `notes` WHERE id = :id', ['id' => $id]);
 
 $heading = "My Notes";
 
-require "views/notes.view.php";
+require "views/note.view.php";
