@@ -10,11 +10,11 @@ $config = require 'config.php';
 
 $db = new Database($config['database']);
 $id = $_GET['id_'];
-$query = "SELECT * FROM post WHERE id = {$id} ";
-dd($query);
-$posts = $db->query($query);
+$query = "SELECT * FROM post WHERE id = ? ";
+// dd($query);
+$posts = $db->query($query, [$id]);
 
-// dd($posts);
+//  dd($posts);
 foreach ($posts as $post) {
     echo "<li>" . $post['title'] . "</li>";
 };

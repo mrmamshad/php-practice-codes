@@ -13,14 +13,14 @@ class Database
         // $con = "mysql:host={$config['host']};port={$config['port']};dbname={$config['dbname']};user={$config['user']};charset={$config['charset']}";
         $this->connection = new PDO($con);
     }
-    public function query($query)
+    public function query($query, $parame = [])
     {
 
 
 
         $statement = $this->connection->prepare($query);
 
-        $statement->execute();
+        $statement->execute($parame);
         return  $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 }
