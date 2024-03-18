@@ -6,9 +6,13 @@ require 'functions.php';
 
 require 'Database.php';
 
+$config = require 'config.php';
 
-$db = new Database();
-$posts = $db->query("SELECT * FROM post");
+$db = new Database($config['database']);
+$id = $_GET['id_'];
+$query = "SELECT * FROM post WHERE id = {$id} ";
+dd($query);
+$posts = $db->query($query);
 
 // dd($posts);
 foreach ($posts as $post) {

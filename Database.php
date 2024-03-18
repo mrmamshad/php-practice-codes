@@ -4,9 +4,13 @@
 class Database
 {
     public $connection;
-    public function __construct()
+    public function __construct($config)
     {
-        $con = "mysql:host=localhost;port=3306;dbname=@r3dgaara;user=root;charset=utf8mb4";
+
+
+        $con = "mysql:" . http_build_query($config, '', ';');
+
+        // $con = "mysql:host={$config['host']};port={$config['port']};dbname={$config['dbname']};user={$config['user']};charset={$config['charset']}";
         $this->connection = new PDO($con);
     }
     public function query($query)
