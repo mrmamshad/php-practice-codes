@@ -1,31 +1,15 @@
 <?php
 
-$config = require 'config.php';
+$config = require('config.php');
 $db = new Database($config['database']);
 
-$currentUserId = 2;
-// that is the id of notes we want to grab from database 
+$heading = 'Note';
+$currentUserId = 1;
 
-// $id = $_GET['id'];
-
-$notes = $db->query('select * from notes where id = :id', [
+$note = $db->query('select * from notes where id = :id', [
     'id' => $_GET['id']
 ])->findOrFail();
 
-
-// dd($notes);
-
-
-if ($notes[0]["user_id"] !== $currentUserId) {
-    abort(403);
-}
-
-
-// Explanation :
-//         select sobkichu from notes table where id = akta value , jai value ta 'id' namok array key r value 
-
-
-
-$heading = "My Notes";
+authorize($note['user_id'] === $currentUserId);
 
 require "views/note.view.php";
