@@ -10,11 +10,9 @@ $currentUserId = 2;
 
 $notes = $db->query('select * from notes where id = :id', [
     'id' => $_GET['id']
-]);
+])->findOrFail();
 
-if (!$notes) {
-    abort();
-};
+
 // dd($notes);
 
 
