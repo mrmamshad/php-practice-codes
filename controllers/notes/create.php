@@ -1,16 +1,20 @@
 <?php
 
-require "Validator.php";
+require base_path("Core/Validator.php");
 
-$config = require('config.php');
+$config = require  base_path('config.php');
+require  base_path('Core/Database.php');
 $db = new Database($config['database']);
 
-$heading = 'Create Note';
+$heading = "Create  Note";
+
+
+$errors = [];
 
 // dd(validator::email('mamshad@example.com'));
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $errors = [];
+
 
 
     // dd(strlen(trim($_POST['body'])));
@@ -26,4 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ]);
     }
 }
-require 'views/notes/create.view.php';
+require views("notes/create.view.php", [
+    'headings' => 'Create Note',
+    'errors' => $errors,
+]);

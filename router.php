@@ -1,7 +1,7 @@
 <?php
 
 
-$routes = require 'route.php';
+$routes = require 'Core/route.php';
 
 
 function routeToController($uri, $routes)
